@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.controller.TelaAtendimentoController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Gerenciamento de Atendimento" style="-fx-text-fill: #333333;">
+        <font>
+            <Font size="24.0" />
+        </font>
+        <VBox.margin>
+            <Insets bottom="10.0" />
+        </VBox.margin>
+    </Label>
+
+    <Label fx:id="labelGarcomLogadoNome" style="-fx-font-style: italic; -fx-text-fill: #555555;">
+        <VBox.margin>
+            <Insets bottom="10.0" />
+        </VBox.margin>
+    </Label>
+
+    <HBox spacing="20.0" alignment="CENTER">
+        <VBox spacing="10.0" alignment="TOP_CENTER" style="-fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 10;">
+            <Label text="Fila de Espera Geral:" style="-fx-font-weight: bold;" />
+            <ListView fx:id="listViewFilaEspera" prefHeight="200.0" prefWidth="280.0" />
+            <Button onAction="#handleAtenderProximoDaFilaGeral" text="Atender Próximo da Fila Geral" prefWidth="250.0" />
+        </VBox>
+        <VBox spacing="10.0" alignment="TOP_CENTER" style="-fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 10;">
+            <Label text="Meus Atendimentos:" style="-fx-font-weight: bold;" />
+            <ListView fx:id="listViewAtendimentosDoGarcom" prefHeight="200.0" prefWidth="280.0" />
+            <HBox spacing="10.0" alignment="CENTER">
+                <Button onAction="#handleFinalizarAtendimento" text="Finalizar Atendimento" prefWidth="180.0" />
+                <Button onAction="#handleGerenciarPedido" text="Gerenciar Pedido" prefWidth="180.0" />
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="15.0" alignment="CENTER">
+        <Button onAction="#handleCadastrarAtenderNovoCliente" text="Cadastrar e Atender Novo Cliente" prefHeight="35.0" prefWidth="250.0" />
+        <Button onAction="#handleCadastrarAtenderNovoGrupo" text="Cadastrar e Atender Novo Grupo" prefHeight="35.0" prefWidth="250.0" />
+    </HBox>
+
+    <Button onAction="#handleReordenarFila" text="Reordenar Fila Geral" prefHeight="35.0" prefWidth="250.0" />
+
+    <VBox.margin>
+        <Insets top="20.0" />
+    </VBox.margin>
+    <Button onAction="#handleVoltar" text="Voltar ao Menu do Garçom" prefHeight="35.0" prefWidth="200.0" />
+</VBox>
